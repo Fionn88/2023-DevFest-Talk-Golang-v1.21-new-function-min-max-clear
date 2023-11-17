@@ -50,7 +50,7 @@ This is research materials
 
 ### 總結
 
-在這兩個 function 中，泛型T [cmp.Ordered](https://cs.opensource.google/go/go/+/refs/tags/go1.21.4:src/cmp/cmp.go;l=18)意味著這些 function 可以接受任何實現了 cmp.Ordered interface 的 類型。這種泛型的使用提高了程式碼的通用性和靈活性。
+在這兩個 function 中，泛型T [cmp.Ordered](https://cs.opensource.google/go/go/+/refs/tags/go1.21.4:src/cmp/cmp.go;l=18) 意味著這些 function 可以接受任何實現了 cmp.Ordered interface 的 類型。這種泛型的使用提高了程式碼的通用性和靈活性。
 例如，你可以使用 max function 来比較兩個 int、float 或甚至自定義類型（只要這些類型實現了 cmp.Ordered 接口）。這使得 max 和 min function 可以在多種不同類型的數據上工作，而不需要為每種數據類型單獨寫 function。
 
 ## Let's look up the [source code](https://cs.opensource.google/go/go/+/refs/tags/go1.21.4:src/builtin/builtin.go;l=251) to understand how to use the `clear` function
@@ -63,9 +63,9 @@ This is research materials
 3. 類型限制:
     ~[]Type 表示 T 可以是任何與某種 slice 類型相似（相同底層類型）的類型。
     ~map[Type]Type1 表示 T 可以是任何與某種map類型相似的類型。
-4. 對於map的操作:
+4. 對於 map 的操作:
     當 T 是 map 類型時，clear function 會刪除map中的所有條目，使其變為空map。
-5. 對於slice的操作:
+5. 對於 slice 的操作:
     當 T 是 slice 類型時，clear function 會將 slice 中的所有元素設置為它們各自元素類型的零值，直到達到 slice 的長度。
 6. 泛型約束:
     如果 T 是一個類型參數（在泛型 function 或接口中），則 T 的類型集合必須只包含 map 或 slice 類型，並且 clear 將根據類型參數的實際類型執行相應的清空操作。
@@ -91,4 +91,3 @@ This is research materials
 3. 錯誤處理和清晰度： Go 強調明確的錯誤處理和清晰的代碼流程。讓 max function 接受列表（在 Go 中是 slice ）作為參數可能引入更多的複雜性（例如處理空列表）和模糊性（如混合類型列表），這通常是Go所避免的。
 
 總結來說，Python 的設計目標在於開發者的便利性和靈活性，而 Go 的設計則聚焦於簡潔性、清晰度和性能。這些設計選擇影響了內建 function 和方法的實現方式及它們接受的參數類型。
-
