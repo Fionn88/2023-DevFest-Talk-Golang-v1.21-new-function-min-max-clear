@@ -77,6 +77,23 @@ This is research materials
 1. Slice：以前需要使用 s = s [:0] 或 s = nil 等方法來清空 slice，這些方法不夠直觀且一致，可能導致內存泄漏或性能下降。使用 clear (s) 可以更簡潔高效地完成清空操作，同時保留底層內存。
 2. Map：以前需要使用 for k := range m {delete (m, k) } 或 m = nil 等方法來清空 map，這些方法不夠優雅和安全，可能導致內存浪費或競爭條件。使用 clear (m) 使清空操作更容易和安全。
 
+```
+	s := []int{1, 2, 3, 4, 5}
+	// Approach 1
+	s = s[:0]
+	// Approach 2
+	s = nil
+
+	m := map[string]int{"a": 1, "b": 2, "c": 3}
+
+	// Approach 1
+	for k := range m {
+		delete(m, k)
+	}
+	// Approach 2
+	m = nil
+```
+
 ## Why is it designed this way?
 
 ### Python 的設計理念:
