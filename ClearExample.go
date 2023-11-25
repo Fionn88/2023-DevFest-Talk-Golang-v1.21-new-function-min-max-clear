@@ -22,16 +22,18 @@ func main() {
 	// The Original Method
 	s := []int{1, 2, 3, 4, 5}
 	fmt.Println("Before clear:", s) // Before clear: [1 2 3 4 5]
-	// s = s[:0]
-	s = nil
+
+	s = s[:0]
+	// s = nil
+	fmt.Println(cap(s))
 	fmt.Println("After clear:", s) // After clear: []
 
 	m := map[string]int{"a": 1, "b": 2, "c": 3}
 	fmt.Println("Before clear:", m) // Before clear: map[a:1 b:2 c:3]
 
-	// for k := range m {
-	// 	delete(m, k)
-	// }
-	m = nil
+	for k := range m {
+		delete(m, k)
+	}
+	// m = nil
 	fmt.Println("After clear:", m) // After clear: map[]
 }
