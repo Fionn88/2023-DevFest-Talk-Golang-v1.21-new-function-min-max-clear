@@ -25,7 +25,7 @@ func main() {
 
 	s = s[:0]
 	// s = nil
-	fmt.Println(cap(s))
+	fmt.Println(cap(s), len(s))
 	fmt.Println("After clear:", s) // After clear: []
 
 	m := map[string]int{"a": 1, "b": 2, "c": 3}
