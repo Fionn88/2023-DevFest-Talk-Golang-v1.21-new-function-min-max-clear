@@ -15,7 +15,7 @@ func main() {
 	fmt.Println(math.Max(10, -20))         // Result: 10
 	fmt.Println(math.Max(-10, -10))        // Result: -10
 	fmt.Println(math.Max(10.5, -20.12))    // Result: 10.5
-	fmt.Println(math.Max(math.Inf(2), 10)) // Result: +Inf
+	fmt.Println(math.Max(math.Inf(1), 10)) // Result: +Inf
 	fmt.Println(math.Max(10, math.NaN()))  // Result: Nan
 
 	fmt.Println(math.Min(0.0, -0.0)) // Result: 0
